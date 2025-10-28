@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+
+let prices=[12.98, 14.20, 5.86, 9.25, 14.7];
+
+document.write(`Original Prices:<br>`);
+document.write(`${prices}<br>`)
+document.write(`<br>`);
+
+let taxedPrices = prices.map(function(price) {
+  return price * 1.13;
+});
+document.write(`Taxed Prices:<br>`);
+document.write(`${taxedPrices}<br>`)
+document.write(`<br>`);
+
+let formatted = taxedPrices.map(function(price) {
+  return Math.round(price * 100) / 100;
+});
+document.write(`Cutoff taxed Prices:<br>`);
+document.write(`${formatted}<br>`)
+document.write(`<br>`);
+
+let discountedPrices = formatted.map(function(price) {
+  return Math.round(price * 0.75 * 100) / 100;
+});
+
+
+document.write("<br>");
+document.write(`Original Prices(tax included):<br>`);
+for (let x = 0; x < formatted.length; x++) {
+  document.write(`$${formatted[x]}<br>`);
+}
+
+document.write("<br>");
+document.write(`Congratulations! After a 25% off discount your items are now:<br>`);
+
+for (let x = 0; x < discountedPrices.length; x++) {
+
+  document.write(`$${discountedPrices[x]}<br>`);
+}
+
+</script>
+</html>
